@@ -1,0 +1,29 @@
+let input = require('fs').readFileSync('/dev/stdin', 'utf8');
+let arrayPrompt = [];
+let linhas = input.split('\n');
+for (let x = 0; x < linhas.length; x++) {
+  let linhaAtual = linhas[x];
+  let entradasLinhaAtual = linhaAtual.split(' ');
+  for (let y = 0; y < entradasLinhaAtual.length; y++) {
+    let entradaAtual = entradasLinhaAtual[y];
+    arrayPrompt.push(entradaAtual);
+  }
+}
+let prompt = function(texto) { return arrayPrompt.shift(); };
+
+let soma = 0;
+let a = parseInt(prompt("valor A"));
+let n = 0;
+
+for ( ; ; ) {
+    n = parseInt(prompt("valor N"));
+    if (n > 0) {
+        break;
+    }
+}
+
+for (let i = 0; i <= n - 1; i++) {
+    soma += a + i;
+}
+
+console.log(soma);
