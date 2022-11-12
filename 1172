@@ -1,0 +1,15 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+let vetor = [];
+
+for (let i = 0; i < 10; i++) {
+    let entrada = parseInt(prompt("entrada"));
+    if (entrada <= 0) {
+        entrada = 1;
+    }
+    
+    vetor.push(entrada);
+    console.log("X[" + i + "] = " + vetor[i]);
+}
