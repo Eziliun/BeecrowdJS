@@ -1,0 +1,24 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+let casos = parseInt(prompt("número de casos"));
+
+let fibo = [];
+let x = 0;
+let y = 1;
+let z = 0;
+fibo.push(x);
+fibo.push(y);
+
+for(let i = 2; i <= 60; i++) {
+    z = x + y;
+    fibo.push(z);
+    x = y
+    y = z
+}
+
+for(let i = 0; i < casos; i++) {
+    let entrada = parseInt(prompt("entrada"));
+    console.log("Fib(" + entrada + ") = " + fibo[entrada]);
+}
