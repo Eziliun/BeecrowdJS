@@ -1,0 +1,45 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+    var entrada = prompt ("XXXXXXXX");
+    var [x, y, z] = entrada.split(" ");
+    x = parseFloat(x);
+    y = parseFloat(y);
+    z = parseFloat(z);
+    if(x >= y && x >= z)    {
+        var a = x
+        var b = y
+        var c = z
+    }
+    if(y >= x && y >= z)    {
+        var a = y
+        var b = x
+        var c = z
+    }
+    if(z >= x && z >= y)    {
+        var a = z
+        var b = x
+        var c = y 
+    }
+    var a2 = a * a
+    var bc = (b * b) + (c * c)
+    if (a >= (b + c))   {
+        console.log("NAO FORMA TRIANGULO")
+    }else{
+        if(a2 === bc)   {
+            console.log("TRIANGULO RETANGULO")
+        }
+        if(a2 > bc) {
+            console.log("TRIANGULO OBTUSANGULO")
+        }
+        if(a2 < bc) {
+            console.log("TRIANGULO ACUTANGULO")
+        }
+
+        if(a === b && b === c & a === c)    {
+            console.log("TRIANGULO EQUILATERO")
+        }else if (!(a !== b && b !== c && a !== c))  {
+            console.log("TRIANGULO ISOSCELES")
+        }
+    }
