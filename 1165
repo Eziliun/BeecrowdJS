@@ -1,0 +1,21 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+let n = parseInt(prompt("numero de casos"));
+
+for (let x = 0; x < n; x++) {
+  let saiu = 0;
+  let valor = parseInt(prompt("valor"));
+  for (let y = 2; y < valor; y++) {
+    if (valor % y === 0) {
+      console.log(valor + " nao eh primo");
+      saiu = 1;
+      break;
+    } 
+  }
+  if (saiu === 0) {
+    console.log(valor + " eh primo");
+  }
+}
+
