@@ -1,0 +1,9 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+    let qtdSegundos = parseInt(input);
+    var qtdHoras = parseInt(qtdSegundos / 3600);
+    qtdSegundos = qtdSegundos % 3600;
+    var qtdMinutos = parseInt(qtdSegundos / 60);
+    qtdSegundos = qtdSegundos % 60;
+    console.log(`${qtdHoras}:${qtdMinutos}:${qtdSegundos}`);
