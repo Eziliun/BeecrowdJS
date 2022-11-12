@@ -1,0 +1,69 @@
+let input = require('fs').readFileSync('/dev/stdin', 'utf8');
+let arrayPrompt = [];
+let linhas = input.split('\n');
+for (let x = 0; x < linhas.length; x++) {
+  let linhaAtual = linhas[x];
+  let entradasLinhaAtual = linhaAtual.split(' ');
+  for (let y = 0; y < entradasLinhaAtual.length; y++) {
+    let entradaAtual = entradasLinhaAtual[y];
+    arrayPrompt.push(entradaAtual);
+  }
+}
+let prompt = function(texto) { return arrayPrompt.shift(); };
+
+function sumOfAll(b, a) {
+  return b + a;
+}
+
+let numberOfPlayers = parseInt(prompt(''));
+let playersServes = [];
+let playersBlocks = [];
+let playersStrikes = [];
+
+let playersHitServes = [];
+let playersHitBlocks = [];
+let playersHitStrikes = [];
+
+
+for (let i = 0; i < numberOfPlayers; i++) {
+  let playerName = prompt('');
+
+  // Trys
+  let actualServe = parseInt(prompt(''));
+  playersServes.push(actualServe);
+  
+  let actualBlock = parseInt(prompt(''));
+  playersBlocks.push(actualBlock);
+  
+  let actualStrike = parseInt(prompt(''));
+  playersStrikes.push(actualStrike);
+  
+  // Hits
+  let actualHitServe = parseInt(prompt(''));
+  playersHitServes.push(actualHitServe);
+  
+  let actualHitBlock = parseInt(prompt(''));
+  playersHitBlocks.push(actualHitBlock);
+  
+  let actualHitStrike = parseInt(prompt(''));
+  playersHitStrikes.push(actualHitStrike);
+}
+
+let totalServes = playersServes.reduce(sumOfAll);
+let totalBlocks = playersBlocks.reduce(sumOfAll);
+let totalStrikes = playersStrikes.reduce(sumOfAll);
+
+let totalHitServes = playersHitServes.reduce(sumOfAll);
+let totalHitBlocks = playersHitBlocks.reduce(sumOfAll);
+let totalHitStrikes = playersHitStrikes.reduce(sumOfAll);
+
+let percentageOfServes = (totalHitServes / totalServes) * 100;
+let percentageOfBlocks = (totalHitBlocks / totalBlocks) * 100;
+let percentageOfStrikes = (totalHitStrikes / totalStrikes) * 100;
+
+console.log(`Pontos de Saque: ${percentageOfServes.toFixed(2)} %.`);
+console.log(`Pontos de Bloqueio: ${percentageOfBlocks.toFixed(2)} %.`);
+console.log(`Pontos de Ataque: ${percentageOfStrikes.toFixed(2)} %.`);
+
+
+
