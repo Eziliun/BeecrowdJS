@@ -1,0 +1,25 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+let alcool = 0;
+let gasolina = 0;
+let diesel = 0;
+
+for( ; ; ) {
+  let escolha = parseInt(prompt("escolha do cliente"));
+  if (escolha === 1) {
+    alcool++;
+  } else if (escolha === 2) {
+    gasolina++;
+  } else if (escolha === 3) {
+    diesel++;
+  } else if (escolha === 4) {
+    break;
+  }
+}
+
+console.log("MUITO OBRIGADO");
+console.log("Alcool: " + alcool);
+console.log("Gasolina: " + gasolina);
+console.log("Diesel: " + diesel);
