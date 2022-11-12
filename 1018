@@ -1,0 +1,14 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift();};
+
+    var quantiaDinheiro= parseInt(prompt("Informe uma quantia em dinheiro entre 1 e 1000000: "))
+    var qtd100, qtd50, qtd20, qtd10, qtd5, qtd2, qtd1= parseInt
+    console.log(quantiaDinheiro)
+    console.log((qtd100= Math.floor(quantiaDinheiro/100))+ " nota(s) de R$ 100,00")
+    console.log((qtd50= Math.floor((quantiaDinheiro - (qtd100*100))/50))+ " nota(s) de R$ 50,00")
+    console.log((qtd20= Math.floor((quantiaDinheiro - (qtd100*100)-(qtd50*50))/20))+ " nota(s) de R$ 20,00")
+    console.log((qtd10= Math.floor((quantiaDinheiro - (qtd100*100)-(qtd50*50)-(qtd20*20))/10))+ " nota(s) de R$ 10,00")
+    console.log((qtd5= Math.floor((quantiaDinheiro - (qtd100*100)-(qtd50*50)-(qtd20*20)-(qtd10*10))/5))+ " nota(s) de R$ 5,00")
+    console.log((qtd2= Math.floor((quantiaDinheiro - (qtd100*100)-(qtd50*50)-(qtd20*20)-(qtd10*10)-(qtd5*5))/2))+ " nota(s) de R$ 2,00")
+    console.log((qtd1= Math.floor((quantiaDinheiro - (qtd100*100)-(qtd50*50)-(qtd20*20)-(qtd10*10)-(qtd5*5)-(qtd2*2))/1))+ " nota(s) de R$ 1,00")
