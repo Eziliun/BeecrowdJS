@@ -1,0 +1,27 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+let vetor = [];
+let aux1 = 0;
+let aux2 = 0;
+
+for (let i = 0; i < 20; i++) {
+  let entrada = parseFloat(prompt("entrada"));
+  vetor.push(entrada);
+}
+
+for (let i = 0; i < 10; i++) {
+  aux1 = vetor[i];
+  aux2 = vetor[19- i];
+
+  vetor[i] = aux2;
+  vetor[19 - i] = aux1;
+
+  aux1 = 0;
+  aux2 = 0;
+}
+
+for (let i = 0; i < 20; i++) {
+  console.log("N[" + i + "] = " + vetor[i]);
+}
