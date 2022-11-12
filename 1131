@@ -1,0 +1,51 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+let arr = [];
+
+for (let x = 0; x < lines.length; x++) {
+    arr = arr.concat(lines[x].split(" "));
+}
+var prompt = function(texto) { return arr.shift(); };
+
+
+let vitoriasInter = 0;
+let vitoriasGremio = 0;
+let empates = 0;
+let grenais = 1;
+let mensagemResultado = "";
+
+for ( ; ; ) {
+  let golsInter = parseInt(prompt("Gols do inter"));
+  let golsGremio = parseInt(prompt("Gols do gremio"));
+
+  if (golsInter > golsGremio) {
+    vitoriasInter++;
+  } else if (golsGremio > golsInter) {
+    vitoriasGremio++;
+  } else {
+    empates++;
+  }
+  
+  let novoGrenal = parseInt(prompt("Novo grenal (1-sim 2-nao)"));
+  console.log("Novo grenal (1-sim 2-nao)");
+  
+  if (novoGrenal === 1) {
+    grenais++
+  } else if (novoGrenal === 2) {
+    break;
+  }
+}
+
+if (vitoriasInter > vitoriasGremio) {
+  mensagemResultado = "Inter venceu mais";
+} else if (vitoriasInter < vitoriasGremio) {
+  mensagemResultado = "Gremio venceu mais";
+} else {
+  mensagemResultado = "Nao houve vencedor";
+}
+
+console.log(grenais + " grenais");
+console.log("Inter:" + vitoriasInter);
+console.log("Gremio:" + vitoriasGremio);
+console.log("Empates:" + empates);
+console.log(mensagemResultado);
