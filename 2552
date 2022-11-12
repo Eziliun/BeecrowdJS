@@ -1,0 +1,44 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+while(true) 
+{
+    var entry = lines.shift();
+    if(typeof(entry) == 'undefined' || entry === ''){break}
+    
+    var[lin,col] = entry.split(' ').map(Number);
+    var board = [];
+    for (i = 0; i < lin; i++)
+    {
+        board[i] = lines.shift().split(' ').map(Number);
+        for(j = 0; j < col; j++)
+        {
+            if(board[i][j] == 1)
+            {
+                board[i][j] = 9
+            }
+        }
+    }
+for(i = 0; i < lin; i++)
+{
+    for(j = 0; j < col; j++)
+    {
+        var soma = 0;
+        if(board[i][j] === 0)   
+        {
+          if(typeof(board[i+1]) != 'undefined') 
+          {
+              if(board[i+1][j] == 9){soma++}
+          } 
+          if(typeof(board[i-1]) != 'undefined') 
+          {
+            if(board[i-1][j] == 9){soma++}  
+          }
+          if(board[i][j+1] == 9){soma++}
+          if(board[i][j-1] == 9){soma++}
+          board[i][j] = soma;
+        }
+    }
+    console.log(board[i].join(''));
+}
+}
