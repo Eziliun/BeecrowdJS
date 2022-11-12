@@ -1,0 +1,12 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var linha = lines.shift().split(" ");
+var A = parseInt(linha[0]);
+var B = parseInt(linha[1]);
+
+if(A % B === 0 || B % A === 0){
+    console.log("Sao Multiplos");
+}else{
+    console.log("Nao sao Multiplos");
+}
