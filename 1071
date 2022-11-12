@@ -1,0 +1,24 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+let valor1 = parseInt(prompt("valor x"));
+let valor2 = parseInt(prompt("valor y"));
+let valorMaior = 0;
+let valorMenor = 0;
+let soma = 0;
+
+if (valor1 > valor2)    {
+    valorMaior = valor1;
+    valorMenor = valor2;
+} else {
+    valorMaior = valor2;
+    valorMenor = valor1;
+}
+
+for (x = valorMenor + 1; x < valorMaior; x++) {
+  if (x % 2 !== 0) {
+    soma += x;
+  }
+}
+console.log(soma);
