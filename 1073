@@ -1,0 +1,12 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+    let valor  = parseInt(prompt("Insira um valor de 6 ate 1999"));
+    for (let x = 1; x <= valor; x++)    {
+        if (x % 2 === 0)    {
+            console.log(x + "^2 = " + x ** 2);
+        }else if (x > valor)    {
+            break;
+        }
+    }
