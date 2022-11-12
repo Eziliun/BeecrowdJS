@@ -1,0 +1,25 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+  let arr = [];
+  arr.push(lines.shift());
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
+    let numbers = line.split(' ');
+    arr.push(numbers[0]);
+    arr.push(numbers[1]);
+  }
+let prompt = function(texto) { return arr.shift(); };
+  
+  let casos = parseInt(prompt("numero de casos"));
+
+  for(let x = 0; x < casos; x++) {
+    let PrimeiroNumero = parseInt(prompt("1º numero"));
+    let SegundoNumero = parseInt(prompt("2º numero"));
+    let divisao = PrimeiroNumero / SegundoNumero;
+
+    if(SegundoNumero === 0) {
+      console.log("divisao impossivel");
+    } else {
+      console.log(divisao.toFixed(1));
+    }
+  }
