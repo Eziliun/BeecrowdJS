@@ -1,0 +1,19 @@
+var input= require('fs').readFileSync('/dev/stdin','utf8');
+var lines = input.split('\n');
+var N = Number(lines.shift());
+var H = lines[0].split(" ").map(Number);
+var padrao = 0;
+
+if (N > 2)  {
+    for (let i = 2; i < N; i++)  {
+      if((H[i-2] > H[i-1] && H[i-1] < H[i]) || (H[i-2] < H[i-1] && H[i-1] > H[i]))  {
+          padrao = 1;
+      }else{
+          padrao = 0;
+          break;
+      }
+    }
+}else{
+    if(H[0] != H[1]) padrao = 1;
+}
+console.log(padrao)
