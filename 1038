@@ -1,0 +1,26 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split(' ');
+
+    const Codigo = Number(lines[0])
+    const qtd = Number(lines[1])
+
+    function sanck(Codigo, qtd){
+        switch(Codigo){
+            case 1:
+                console.log(`Total: R$ ${(qtd * 4.00).toFixed(2)}`)
+                break
+            case 2:
+                console.log(`Total: R$ ${(qtd * 4.50).toFixed(2)}`)
+                break
+            case 3:
+                console.log(`Total: R$ ${(qtd * 5.00).toFixed(2)}`)
+                break
+            case 4:
+                console.log(`Total: R$ ${(qtd * 2.00).toFixed(2)}`)
+                break
+            case 5:
+                console.log(`Total: R$ ${(qtd * 1.50).toFixed(2)}`)
+        }
+
+    }
+    sanck(Codigo, qtd)
