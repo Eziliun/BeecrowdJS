@@ -1,0 +1,37 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); }
+
+
+
+let notaValida1 = -1;
+let notaValida2 = -1;
+
+for( ; ; ) {
+  let nota1 = parseFloat(prompt("nota 1"));
+  if(nota1 < 0 ||  nota1 > 10) {
+    console.log("nota invalida");
+  } else if (notaValida2 === -1) {
+    notaValida2 = nota1;
+  } else if (notaValida1 === -1) {
+    notaValida1 = nota1;
+    let media = (notaValida1 + notaValida2) / 2;
+    console.log("media = " + media.toFixed(2));
+    
+    let executarNovamente = -1;
+    for( ; ; ) {
+      executarNovamente = parseInt(prompt("novo calculo (1-sim 2-nao)"));
+      console.log("novo calculo (1-sim 2-nao)");
+      if (executarNovamente === 2) {
+        break;
+      } else if (executarNovamente === 1) {
+        notaValida1 = -1;
+        notaValida2 = -1;
+        break;
+      }
+    }
+    if (executarNovamente === 2) {
+      break;
+    }
+  }
+}
