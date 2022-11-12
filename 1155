@@ -1,0 +1,13 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+
+let s = 0;
+let a = 1;
+let b = 2;
+
+while (b <= 100) {
+  s += a/b;
+  b++;
+}
+
+let calculoFinal = s + 1;
+console.log(calculoFinal.toFixed(2));
