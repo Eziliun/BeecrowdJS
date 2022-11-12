@@ -1,0 +1,22 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+    let valor = parseInt(prompt("Insira um valor"));
+    
+
+    if (valor % 2 === 0) {
+        for (let x = 1; x <= 12; x++) {
+            valorPar = valor + x;
+            if (valorPar % 2 !== 0) {
+                console.log(valorPar);
+            }
+        }
+    } else {
+        for (let x = 0; x <= 12; x++) {
+            valorImpar = valor + x;
+            if (valorImpar % 2 === 0) {
+                console.log(valorImpar - 1);
+            }
+        }
+    }
