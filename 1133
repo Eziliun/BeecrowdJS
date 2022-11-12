@@ -1,0 +1,23 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+let prompt = function(texto) { return lines.shift(); }
+
+let valor1 = parseInt(prompt("valor 1"));
+let valor2 = parseInt(prompt("valor 2"));
+
+if (valor1 > valor2) {
+  valorMaior = valor1;
+  valorMenor = valor2;
+} else {
+  valorMaior = valor2;
+  valorMenor = valor1;
+}
+
+for (let x = valorMenor + 1; x < valorMaior; x++) {
+  if (x % 5 === 2) {
+    console.log(x);
+  } else if (x % 5 === 3){
+    console.log(x);
+  }
+}
