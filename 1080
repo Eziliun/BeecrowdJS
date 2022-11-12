@@ -1,0 +1,18 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift(); };
+
+let valorMaior = 0;
+let posição = 0;
+
+for (let x = 0; x < 100; x++)   {
+    let valor = parseInt(prompt("valor"));
+    if (valor > valorMaior) {
+            valorMaior = valor;
+    posição = x;
+    }
+
+}
+
+console.log(valorMaior);
+console.log(posição + 1);
