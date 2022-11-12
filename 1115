@@ -1,0 +1,27 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+let lines = input.split('\n');
+let arr = [];
+for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
+    let numbers = line.split(' ');
+    arr.push(numbers[0]);
+    arr.push(numbers[1]);
+}
+let prompt = function(texto) { return arr.shift(); };
+
+for (let x = 1; x > 0; x++) {
+  let pontoX = parseInt(prompt("ponto X"));
+  let pontoY = parseInt(prompt("ponto Y"));
+
+  if (pontoX > 0 && pontoY > 0) {
+    console.log("primeiro");
+  } else if (pontoX > 0 && pontoY < 0) {
+    console.log("quarto");    
+  } else if (pontoX < 0 && pontoY < 0) {
+    console.log("terceiro");
+  } else if (pontoX < 0 && pontoY > 0) {
+    console.log("segundo");
+  } else {
+      break;
+  }
+}
