@@ -1,0 +1,42 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+let arr = [];
+arr.push(lines.shift());
+
+for(let x = 0; x < lines.length; x++) {
+    let line = lines[x];
+    arr = arr.concat(line.split(" "));
+}
+var prompt = function(texto) { return arr.shift(); };
+
+
+let n = parseInt(prompt("casos"));
+let coelhos = 0;
+let ratos = 0;
+let sapos = 0;
+
+for(let x = 0; x < n; x++) {
+  let quantia = parseInt(prompt("quantia"));
+  let tipoCobaia = prompt("tipo de cobaia");
+
+  if (tipoCobaia === "C") {
+    coelhos += quantia;
+  } else if (tipoCobaia === "R") {
+    ratos += quantia;
+  } else if (tipoCobaia === "S") {
+    sapos += quantia;
+  }
+}
+
+let totalCobaias = sapos + ratos + coelhos;
+let percentualCoelhos = (coelhos / totalCobaias) * 100;
+let percentualRatos = (ratos / totalCobaias) * 100;
+let percentualSapos = (sapos / totalCobaias) * 100;
+
+console.log("Total: " + totalCobaias + " cobaias");
+console.log("Total de coelhos: " + coelhos);
+console.log("Total de ratos: " + ratos);
+console.log("Total de sapos: " + sapos);
+console.log("Percentual de coelhos: " + percentualCoelhos.toFixed(2) + " %");
+console.log("Percentual de ratos: " + percentualRatos.toFixed(2) + " %");
+console.log("Percentual de sapos: " + percentualSapos.toFixed(2) + " %");
