@@ -1,0 +1,25 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift ();}; 
+
+var O = prompt();
+var M = []
+var soma = 0;
+var cont = 0;
+
+for (x = 0; x < 12; x++)    {
+    M[x] = [];
+    for(y = 0; y < 12; y++) {
+        M[x][y] = parseFloat(prompt());
+        if((x+y)>11)    {
+            soma += M[x][y];
+            cont++;
+        }
+    }
+}
+
+if(O=="S")  {
+    console.log(soma.toFixed(1));
+}else{
+    console.log((soma/cont).toFixed(1));
+}
