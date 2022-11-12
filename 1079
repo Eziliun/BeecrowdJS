@@ -1,0 +1,33 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+// let array = [];
+// array.push(lines.shift());
+// for (let x = 0; x < lines.length; x++) {
+//     array.concat(lines[x].split(" "));
+// }
+// var prompt = function(texto) { return array.shift(); };
+
+
+
+let qtdCasos = parseInt(lines[0]);
+let casos = [];
+for (let x = 0; x < qtdCasos; x++) {
+    let linhaAtual = lines[x + 1];
+    let numerosLinhaAtual = linhaAtual.split(" ");
+    let casoAtual = [];
+    for (let y = 0; y < numerosLinhaAtual.length; y++) {
+        casoAtual.push(parseFloat(numerosLinhaAtual[y]));
+    }
+    casos.push(casoAtual);
+}   
+
+for (let x = 0; x < qtdCasos; x++) {
+    let casoAtual = casos[x];
+    let valor1 = casoAtual[0];
+    let valor2 = casoAtual[1];
+    let valor3 = casoAtual[2];
+    
+    let mediaPonderada = ((valor1 * 2) + (valor2 * 3) + (valor3 * 5)) / 10;
+    console.log(mediaPonderada.toFixed(1));
+}
