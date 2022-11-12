@@ -1,0 +1,21 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var prompt = function(texto) { return lines.shift(); };
+
+let Casos  = parseInt(prompt("Insira um valor N"));
+
+for (let y = 0; y < Casos; y++) {
+    let x = parseInt(prompt("valor x"));
+    if (x % 2 === 0 && x > 0)   {
+         console.log("EVEN POSITIVE");
+        } else if (x % 2 !== 0 && x > 0) {
+            console.log("ODD POSITIVE");
+        } else if (x % 2 === 0 && x < 0) {
+            console.log("EVEN NEGATIVE");
+        } else if (x % 2 !== 0 && x < 0) {
+            console.log("ODD NEGATIVE");
+        } else {
+            console.log("NULL");
+        }
+    }
