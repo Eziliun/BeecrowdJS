@@ -1,0 +1,22 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+var prompt = function(texto) { return lines.shift ();}; 
+
+var linha = parseInt(prompt());
+var operacao = prompt();
+var matriz = []
+for (i = 0; i < 12; i++)    {
+    matriz[i] = []
+    for (j = 0; j < 12; j++) {
+        matriz [i][j] = parseFloat(prompt());
+    }
+}
+var sum = 0;
+for (i = 0; i < 12; i++)    {
+    sum += matriz[linha][i]
+}
+if (operacao == "S")    {
+    console.log(sum.toFixed(1));
+}else{
+    console.log((sum/12).toFixed(1));
+}
