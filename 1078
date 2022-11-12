@@ -1,0 +1,34 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+var prompt = function(texto) { return lines.shift(); };
+
+let entrada = parseInt(prompt("Entrada"));
+
+for(let x = 0; x < 10; x++) {
+    tabuada = x + 1;
+    console.log(tabuada + " x " + entrada + " = " + tabuada * entrada)
+}
+
+
+
+// let array = [];
+// array.push(lines.shift());
+// for (let x = 0; x < lines.length; x++) {
+//     array.concat(lines[x].split(" "));
+// }
+// var prompt = function(texto) { return array.shift(); };
+
+
+
+let qtdCasos = parseInt(lines[0]);
+let casos = [];
+for (let x = 0; x < qtdCasos; x++) {
+    let linhaAtual = lines[x + 1];
+    let numerosLinhaAtual = linhaAtual.split(" ");
+    let casoAtual = [];
+    for (let y = 0; y < numerosLinhaAtual.length; y++) {
+        casoAtual.push(parseFloat(numerosLinhaAtual[y]));
+    }
+    casos.push(casoAtual);
+}   
