@@ -1,0 +1,29 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+
+var prompt = function(texto) { return lines.shift(); };
+
+let notaValida = -1;
+let notaValida2 = -1;
+for ( ; ; ) {
+  let nota = parseFloat(prompt("nota"));
+  if (nota < 0 || nota > 10) {
+    console.log("nota invalida");
+  } else {
+    // notaValida = nota;
+    // if() {
+    //   novaValida2 = nota;
+    // } else if (notaValida !== notaValida2) {
+    //   console.log(notaValida);
+    //   console.log(notaValida2);
+    // }
+    if (notaValida === -1) {
+      notaValida = nota;
+    } else if (notaValida2 === -1) {
+      notaValida2 = nota;
+      console.log("media = " + ((notaValida + notaValida2) / 2).toFixed(2))
+      break;
+    }
+  }
+}
