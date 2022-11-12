@@ -1,0 +1,23 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+const [a, b, c] = input.split(" ").map(item => parseFloat(item));
+   const delta = ((b * b) - (4 * a * c));
+    const R1 = (- b + Math.sqrt(delta)) / (2 * a); 
+    const R2 = (- b - Math.sqrt(delta)) / (2 * a);
+if ((2*a) === 0){
+    console.log("Impossivel calcular");
+}else{
+    const delta = ((b * b) - (4 * a * c));
+
+    if (delta > -1 ) {
+
+        const R1 = (- b + Math.sqrt(delta)) / (2*a); 
+        const R2 = (- b - Math.sqrt(delta)) / (2*a);
+
+        console.log("R1 = " + R1.toFixed(5));
+        console.log("R2 = " + R2.toFixed(5));
+    } else {
+        console.log("Impossivel calcular");
+    }
+}
